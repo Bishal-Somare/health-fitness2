@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitlife - Payment</title>
+  <title>Fitlife Australia - Membership Payment</title>
 
   <!-- 
     - favicon
@@ -40,7 +40,7 @@
       <a href="index.html" class="logo">
         <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
 
-        <span class="span">Fitlife</span>
+        <span class="span">Fitlife Australia</span>
       </a>
 
       <nav class="navbar" data-navbar>
@@ -103,7 +103,7 @@
             <h2 class="h2 section-title">Choose Your Plan</h2>
 
             <p class="section-text">
-              Select the membership plan that best fits your fitness goals and lifestyle. Our flexible payment options make it easy to start your fitness journey today.
+              Select the membership plan that best fits your fitness goals and embraces the Aussie active lifestyle. Our flexible payment options make it easy to start your fitness journey with Fitlife Australia today.
             </p>
 
             <div class="payment-plans">
@@ -116,22 +116,22 @@
                       class="title-icon">
 
                     <h3 class="h3">
-                      <span class="card-title">Basic Plan</span>
+                      <span class="card-title">Bondi Basic</span>
                     </h3>
                   </div>
 
                   <p class="card-text">
-                    Access to gym floor, basic equipment, and standard hours.
+                    Access to gym floor, basic equipment, and standard hours. Perfect for beginners and casual fitness enthusiasts.
                   </p>
 
                   <div class="card-progress">
                     <div class="progress-wrapper">
                       <p class="progress-label">Price</p>
-                      <span class="progress-value">$29.99/month</span>
+                      <span class="progress-value">$39.99/month</span>
                     </div>
                   </div>
 
-                  <a href="#payment-form" class="btn btn-primary w-100">Select Plan</a>
+                  <a href="#" class="btn btn-primary w-100" onclick="document.getElementById('plan-type').value='Bondi Basic'; document.getElementById('plan-price').innerHTML='$39.99/month'; document.getElementById('payment-box').style.display='block'; return false;">Select Plan</a>
                 </div>
               </div>
 
@@ -143,22 +143,22 @@
                       class="title-icon">
 
                     <h3 class="h3">
-                      <span class="card-title">Premium Plan</span>
+                      <span class="card-title">Aussie Premium</span>
                     </h3>
                   </div>
 
                   <p class="card-text">
-                    Full access to all classes, equipment, and extended hours.
+                    Full access to all classes, equipment, and extended hours. Great for dedicated fitness enthusiasts.
                   </p>
 
                   <div class="card-progress">
                     <div class="progress-wrapper">
                       <p class="progress-label">Price</p>
-                      <span class="progress-value">$49.99/month</span>
+                      <span class="progress-value">$59.99/month</span>
                     </div>
                   </div>
 
-                  <a href="#payment-form" class="btn btn-primary w-100">Select Plan</a>
+                  <a href="#" class="btn btn-primary w-100" onclick="document.getElementById('plan-type').value='Aussie Premium'; document.getElementById('plan-price').innerHTML='$59.99/month'; document.getElementById('payment-box').style.display='block'; return false;">Select Plan</a>
                 </div>
               </div>
 
@@ -170,58 +170,98 @@
                       class="title-icon">
 
                     <h3 class="h3">
-                      <span class="card-title">Elite Plan</span>
+                      <span class="card-title">Outback Elite</span>
                     </h3>
                   </div>
 
                   <p class="card-text">
-                    VIP access with personal trainer sessions and nutrition coaching.
+                    VIP access with personal trainer sessions, nutrition coaching, and exclusive fitness events. For ultimate fitness goals.
                   </p>
 
                   <div class="card-progress">
                     <div class="progress-wrapper">
                       <p class="progress-label">Price</p>
-                      <span class="progress-value">$79.99/month</span>
+                      <span class="progress-value">$89.99/month</span>
                     </div>
                   </div>
 
-                  <a href="#payment-form" class="btn btn-primary w-100">Select Plan</a>
+                  <a href="#" class="btn btn-primary w-100" onclick="document.getElementById('plan-type').value='Outback Elite'; document.getElementById('plan-price').innerHTML='$89.99/month'; document.getElementById('payment-box').style.display='block'; return false;">Select Plan</a>
                 </div>
               </div>
             </div>
 
-            <!-- Payment Form -->
-            <div id="payment-form" class="payment-form">
-              <h3 class="h3" style="margin-top: 50px;">Payment Details</h3>
+            <!-- Payment Box -->
+            <div id="payment-box" style="display: none; margin-top: 50px; background-color: #f9f9f9; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 class="h3">Complete Your Membership</h3>
+                <button onclick="document.getElementById('payment-box').style.display='none';" style="background: none; border: none; cursor: pointer; font-size: 18px;">
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+              </div>
+              
+              <div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <p class="section-text" style="margin-bottom: 5px;">
+                  <strong>Selected Plan:</strong> <span id="plan-type">Basic Plan</span>
+                </p>
+                <p class="section-text">
+                  <strong>Price:</strong> <span id="plan-price">$39.99/month</span>
+                </p>
+              </div>
 
-              <form action="#" method="POST" class="footer-form" style="margin-top: 20px;">
-                <div class="form-group">
-                  <input type="text" name="full_name" placeholder="Full Name" required class="input-field">
+              <form id="personal-details-form">
+                <h4 style="margin-bottom: 15px; font-size: 1.6rem; color: #ff0062;">Personal Details</h4>
+                
+                <div style="margin-bottom: 15px;">
+                  <label for="full_name" style="display: block; margin-bottom: 5px; font-weight: 500;">Full Name</label>
+                  <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required class="input-field" style="width: 100%; padding: 12px;">
                 </div>
-
-                <div class="form-group">
-                  <input type="email" name="email" placeholder="Email Address" required class="input-field">
+                
+                <div style="margin-bottom: 15px;">
+                  <label for="email" style="display: block; margin-bottom: 5px; font-weight: 500;">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email address" required class="input-field" style="width: 100%; padding: 12px;">
                 </div>
-
-                <div class="form-group">
-                  <input type="text" name="card_number" placeholder="Card Number" required class="input-field">
+                
+                <div style="margin-bottom: 15px;">
+                  <label for="phone" style="display: block; margin-bottom: 5px; font-weight: 500;">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required class="input-field" style="width: 100%; padding: 12px;">
                 </div>
-
-                <div class="form-row" style="display: flex; gap: 15px;">
-                  <div class="form-group" style="flex: 1;">
-                    <input type="text" name="exp_date" placeholder="Expiry Date (MM/YY)" required class="input-field">
-                  </div>
-                  <div class="form-group" style="flex: 1;">
-                    <input type="text" name="cvv" placeholder="CVV" required class="input-field">
-                  </div>
+                
+                <div style="margin-bottom: 15px;">
+                  <label for="address" style="display: block; margin-bottom: 5px; font-weight: 500;">Residential Address</label>
+                  <input type="text" id="address" name="address" placeholder="Enter your address" required class="input-field" style="width: 100%; padding: 12px;">
                 </div>
-
-                <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Complete Payment</button>
+                
+                <div style="margin-bottom: 15px;">
+                  <label for="emergency_contact" style="display: block; margin-bottom: 5px; font-weight: 500;">Emergency Contact Name & Number</label>
+                  <input type="text" id="emergency_contact" name="emergency_contact" placeholder="Name and phone number" required class="input-field" style="width: 100%; padding: 12px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                  <label style="display: block; margin-bottom: 5px; font-weight: 500;">Preferred Location</label>
+                  <select name="location" class="input-field" style="width: 100%; padding: 12px;">
+                    <option value="bondi">Bondi Junction, Sydney</option>
+                    <option value="melbourne">Melbourne CBD</option>
+                    <option value="brisbane">Brisbane Central</option>
+                    <option value="perth">Perth Fitness Centre</option>
+                  </select>
+                </div>
+                
+                <div style="display: flex; justify-content: flex-end;">
+                  <button type="button" class="btn btn-primary" style="padding: 12px 20px;" onclick="document.getElementById('payment-section').style.display='block'; this.style.display='none';">Proceed to Payment</button>
+                </div>
               </form>
 
+              <div id="payment-section" style="display: none; margin-top: 25px; border-top: 1px solid #ddd; padding-top: 25px;">
+                <h4 style="margin-bottom: 15px; font-size: 1.6rem; color: #ff0062;">Complete Payment</h4>
+                <p class="section-text" style="margin-bottom: 20px;">
+                  Click the button below to complete your payment securely.
+                </p>
+                <button type="button" class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="alert('Payment completed successfully! Welcome to Fitlife Australia!')">Complete Payment</button>
+              </div>
+              
               <p class="section-text" style="margin-top: 20px; font-size: 1.4rem;">
-                By completing your payment, you agree to our Terms of Service and Privacy Policy. 
-                Your membership will begin immediately upon payment confirmation.
+                We use secure payment processing. By clicking "Complete Payment", you agree to our Terms of Service and Privacy Policy. Your membership will begin immediately upon payment confirmation.
               </p>
             </div>
 
@@ -246,11 +286,11 @@
           <a href="index.html" class="logo">
             <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
 
-            <span class="span">Fitlife</span>
+            <span class="span">Fitlife Australia</span>
           </a>
 
           <p class="footer-brand-text">
-            Etiam suscipit fringilla ullamcorper sed malesuada urna nec odio.
+            Committed to helping Australians achieve their fitness goals with professional guidance and support.
           </p>
 
           <div class="wrapper">
@@ -262,13 +302,13 @@
               <li>
                 <p class="footer-brand-title">Monday - Friday</p>
 
-                <p>7:00Am - 10:00Pm</p>
+                <p>5:00Am - 10:00Pm</p>
               </li>
 
               <li>
                 <p class="footer-brand-title">Saturday - Sunday</p>
 
-                <p>7:00Am - 2:00Pm</p>
+                <p>6:00Am - 4:00Pm</p>
               </li>
 
             </ul>
@@ -317,7 +357,7 @@
             </div>
 
             <address class="address footer-link">
-              1247/Plot No. 39, 15th Phase, Colony, Kukatpally, Hyderabad
+              42 Fitness Way, Bondi Junction, Sydney NSW 2022, Australia
             </address>
           </li>
 
@@ -327,9 +367,9 @@
             </div>
 
             <div>
-              <a href="tel:18001213637" class="footer-link">1800-121-3637</a>
+              <a href="tel:1800222333" class="footer-link">1800-222-333</a>
 
-              <a href="tel:+915552348765" class="footer-link">+91 555 234-8765</a>
+              <a href="tel:+61255587654" class="footer-link">+61 2 5558 7654</a>
             </div>
           </li>
 
@@ -339,9 +379,9 @@
             </div>
 
             <div>
-              <a href="mailto:info@fitlife.com" class="footer-link">info@fitlife.com</a>
+              <a href="mailto:info@fitlifeaustralia.com" class="footer-link">info@fitlifeaustralia.com</a>
 
-              <a href="mailto:services@fitlife.com" class="footer-link">services@fitlife.com</a>
+              <a href="mailto:services@fitlifeaustralia.com" class="footer-link">services@fitlifeaustralia.com</a>
             </div>
           </li>
 
@@ -397,7 +437,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 Fitlife. All Rights Reserved By <a href="#" class="copyright-link">codewithsadee.</a>
+          &copy; 2025 Fitlife Australia. All Rights Reserved.
         </p>
 
         <ul class="footer-bottom-list">
